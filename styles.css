@@ -65,6 +65,18 @@ h1 { /*general style changes to all h1s*/
     padding: .5em 1.5em; /*unstick border .5em top&bottom, 1.5em left&right*/
 }
 
+@media (min-width: 60rem) {
+    .button {
+        font-size: 1.5rem; /*increases all button's size when width>60rem*/
+        /*side-note: by having original .button padding size in em (line 56), this means when the media query kicks in the padding will expand proprotionally. Good use-case for em units*/
+    }
+}
+
+.button-small { /*button-small styling for portfolio*/
+    font-size: .7rem;
+    font-weight: 700;
+}
+
 .button-accent {
     color: #18c25f; /*change specific -accent button color*/
     border-color: #12c25f;
@@ -77,12 +89,6 @@ h1 { /*general style changes to all h1s*/
     color: #232323; /*text color changes to darker from green*/
 }
 
-@media (min-width: 60rem) {
-    .button {
-        font-size: 1.5rem; /*increases all button's size when width>60rem*/
-        /*side-note: by having original .button padding size in em (line 56), this means when the media query kicks in the padding will expand proprotionally. Good use-case for em units*/
-    }
-}
 
 
 
@@ -236,6 +242,43 @@ nav a:focus {
 }
 
 
+/* home-about
+================================= */
 
+.portfolio {
+    margin: 3em 0;
+    grid-template-columns: 1fr 1fr;
+}
 
+.port-item {
+    margin: 0;
+    position: relative; /*again, to be able to move other things on top of the port-item*/
+    width: 100%;
+}
+
+.port-item img { 
+    display: block; /*stick images together*/
+}
+
+.port-desc {
+    position: absolute;
+    z-index: 100;
+    bottom: 2em;
+    left: 3em;
+    right: 3em;
+    color: white;
+    background: rgba(0,0,0, .75); /*add shade*/
+    padding-bottom: 1em;
+}
+
+.port-desc p {
+    margin: 1em;
+}
+
+@media (min-width: 37rem) {
+    .port-item {
+        width: 50%;
+        float: left;
+    }
+}
 
