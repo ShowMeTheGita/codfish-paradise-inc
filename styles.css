@@ -1,11 +1,11 @@
-@import 
+@import /*imports the necessary font*/
 url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700;800&display=swap');
 
-* {
+* { /*styles every element with border-box attribute, this makes padding easier to deal with and handle*/
     box-sizing: border-box;
 }
 
-body {
+body {/*general body styles*/
     margin:0;
     font-family: 'Raleway', sans-serif;
     text-align: center;
@@ -20,6 +20,7 @@ img {
 /*stop the text from touching the side of the screen*/
 .container {
     width: 95%;
+    max-width: 70em;
     margin: 0 auto;
 }
 
@@ -27,9 +28,17 @@ img {
 /* typography
 ===================== */
 
+h1 { /*general style changes to all h1s*/
+    font-weight: 300; /*changes h1 weight*/
+    font-size: 1.7rem;/*changes h1 size*/
+    margin-top: 0; /*no top margin for all general h1s*/
+}
+
 .title {
     font-size: 2.5rem; /*font-sizing for the text on the title*/
     margin-bottom: 1.5em; /*create more space between title and button underneath*/
+    font-weight: 900; /*override h1 default on line 31*/
+    margin-top: .5em; /*override h1 default on line 33*/
 }
 
 .title span {
@@ -148,3 +157,85 @@ nav a:focus {
         padding-top: 35vh; /*keep home-hero centered when media kicks in*/
     }
 }
+
+/* home-about
+================================= */
+
+.home-about-textbox {
+    background-color: #232323;
+    padding: 3em;/*add padding to the textbox*/
+    width: 110%;/*make it occupy the whole screen width*/
+    margin-left: -5%;/*decrease the margin by 5% fo compensate for 110% width*/
+    line-height: 1.5em; /*changes spacing between lines within the paragraph*/
+    outline: 2px solid #00ff6c; /*just like a border, but allows for offsetting to create desired effect*/
+    outline-offset: -1.75em;
+    color: #FFF;/*color all text white*/
+    position: relative;/*position relative, so we can make the h1 inside it absolute and offset it where we need it to go*/
+}
+
+.home-about-textbox h1 {
+    color: #12c25f;/*override white color (line 167) make title green*/
+    position: absolute; /*having textbox relative and the h1 inside it absolute, we can now move it to where we want it*/
+    
+    /*this is a trick to center something that has absolute positioning
+    the left 50% style makes the title move to the center of the screen (50%)
+    however, we don't want the title to start at the 50% mark, we want the center of the title to be in the center of the page
+    in comes transform: translateX(-50%), pushing it back 50% of the current positioning, after the first 50% are applied
+    this centers the title where we want it*/
+    left: 50%;
+    transform: translateX(-50%);
+
+    top: .75em; /*align the h1 with the textbox outline*/
+    background: #232323; /*give it the same background color as the textbox. Stops outline from striking-through*/
+    padding: 0 .25em;/*0 top&bottom, .25em left&right, outline disappears further from title*/
+}
+
+@media (min-width: 25rem) { /*media query to stop h1 in about from overlapping with the text*/
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    .home-about-textbox h1 {
+
+        /*neat trick I found
+        these two attributes force the title to stay in the same line*/
+        white-space: nowrap;
+        overflow: hidden;
+
+        top: .7em;
+        padding: 0 1em;
+        color: white;
+    }
+}
+
+@media (min-width: 60rem) { /*make everything bigger when width reaches 60rem, including adding the image and offsetting the textbox*/
+    h1 {
+        font-size: 2rem;
+    }
+
+    .home-about-textbox h1 {
+        top: .5em;
+        left: 3rem;
+        transform: translateX(0);
+    }
+
+    .home-about {
+        background-image: url(img/bacalhau03.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 5em;
+    }
+
+    .home-about-textbox { /*changes to the textbox to make everything render correctly at 60rem*/
+        width: 50%;
+        margin-left: -2.5%;
+        top: -9em;
+        text-align: left;
+        box-shadow: 0 0 4em 0 rgba(0,0,0,.5); /*adds shadow around it */
+    }
+}
+
+
+
+
+
