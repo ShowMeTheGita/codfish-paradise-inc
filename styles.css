@@ -1,0 +1,150 @@
+@import 
+url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700;800&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin:0;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+}
+
+/*good img practice for not allowing images to overflow beyond page limits*/
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/*stop the text from touching the side of the screen*/
+.container {
+    width: 95%;
+    margin: 0 auto;
+}
+
+
+/* typography
+===================== */
+
+.title {
+    font-size: 2.5rem; /*font-sizing for the text on the title*/
+    margin-bottom: 1.5em; /*create more space between title and button underneath*/
+}
+
+.title span {
+    font-weight: 300; /*override font-sizing for span, decrease weight*/
+    display: block; /*make the text inside the span always in its own block, bellow the bold one*/
+    font-size: .9em; /*in relation to text above*/
+}
+
+@media (min-width:60rem) {
+    .title {
+        font-size: 3.5rem; /*increases font-size when width>60rem*/
+    }
+}
+
+/* buttons */
+
+.button {
+    display: inline-block; /*makes the padding add to the height of everything*/
+    font-size: 1.2rem;
+    text-decoration: none; /*remove default underline*/
+    text-transform: uppercase; /*uppercase all button class*/
+    border-width: 2px; /*add a border to all buttons*/
+    border-style: solid; /*make the border solid on all buttons*/
+    padding: .5em 1.5em; /*unstick border .5em top&bottom, 1.5em left&right*/
+}
+
+.button-accent {
+    color: #18c25f; /*change specific -accent button color*/
+    border-color: #12c25f;
+}
+
+/*add hover and focus effects for the button*/
+.button-accent:hover,
+.button-accent:focus {
+    background: #12c25f; /*bg color changes to match text color*/
+    color: #232323; /*text color changes to darker from green*/
+}
+
+@media (min-width: 60rem) {
+    .button {
+        font-size: 1.5rem; /*increases all button's size when width>60rem*/
+        /*side-note: by having original .button padding size in em (line 56), this means when the media query kicks in the padding will expand proprotionally. Good use-case for em units*/
+    }
+}
+
+
+
+
+/* head
+===================== */
+
+header {
+    position: absolute; /*shrinks down, allows for overlapping*/
+    margin: 1em;
+    left: 0; /*overrides the absolute position and re-centers*/
+    right: 0; /*overrides the absolute position and re-centers*/
+}
+
+/*readjusting the logo since the original size was too big*/
+.logo {
+    max-width: 15%;
+    height: auto;
+}
+
+nav ul {
+    margin: 0; /*remove margin from ul*/
+    padding: 0; /*remove padding from ul*/
+    list-style: none; /*remove default bullets from the list*/
+}
+
+nav li {
+    display: inline-block; /*position list elements side-by-side*/
+    margin: 1em;
+}
+
+nav a {
+    font-weight: 900; /*make the text bold*/
+    text-decoration: none; /*remove underline*/
+    text-transform: uppercase; /*make text uppercase*/
+    font-size: .9rem; /*.8rem means 8 measurements relative to html root size*/
+    padding: .5em; /*adds more clickable space for the link and space li elements*/
+    color: #FFF;
+}
+
+/*add styles when hovering a, add a style when clicked a */
+nav a:hover,
+nav a:focus {
+    color: #DDD;
+}
+
+@media (min-width:60rem) {
+    .logo {
+        float: left; /*logo floats left when width >60rem*/
+    }
+
+    nav {
+        float: right;/*ul floats right when width >60rem*/
+    }
+}
+
+
+/* home-hero 
+=============================== */
+
+.home-hero {
+    background-image: url(img/hero-bg.jpg); /*add background picture*/
+    background-size: cover; /*stops image tiling*/
+    background-position: center; /*centers image*/
+    padding: 10em 0; /*10em top&bottom, 0 left&right */
+    color: #FFF;
+}
+
+@media (min-width: 60rem) {
+    .home-hero {
+        height: 100vh; /*home-hero occupies all of the screen when width>60rem*/
+        padding-top: 35vh; /*keep home-hero centered when media kicks in*/
+    }
+}
