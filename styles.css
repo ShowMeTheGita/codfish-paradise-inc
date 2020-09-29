@@ -3,6 +3,7 @@ url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700;800&displ
 
 * { /*styles every element with border-box attribute, this makes padding easier to deal with and handle*/
     box-sizing: border-box;
+    transition: all ease-in-out 250ms; /*make everything with transition an ease-in-out with 250 milliseconds*/
 }
 
 body {/*general body styles*/
@@ -266,12 +267,12 @@ nav a:focus {
 .port-desc {
     position: absolute;
     z-index: 100;
-    bottom: 3em;
+    bottom: 0;
     left: 0;
     right: 0;
     color: white;
-    background: rgba(0,0,0, .75); /*add shade*/
-    padding-bottom: 1em;
+    background: rgba(0,0,0, .6); /*add shade*/
+    padding-bottom: 2em;
 }
 
 .port-desc p {
@@ -288,5 +289,14 @@ nav a:focus {
 @media (min-width: 60rem) {
     .port-item {
         width: 33.333333334%;
+        overflow: hidden;
+    }
+
+    .port-desc {
+        transform: translateY(150%);
+    }
+
+    .port-item:hover .port-desc {
+        transform: translateY(0%);
     }
 }
