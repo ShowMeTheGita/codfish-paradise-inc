@@ -25,6 +25,53 @@ img {
     margin: 0 auto;
 }
 
+.clearfix::after,
+section::after,
+footer::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+
+/* Column system 
+===================== */
+
+[class^=col-] {
+    width: 100%;
+    margin-top: 1em;
+}
+
+[class^=col-]:first-child { /*first child starts with margin-top of 0*/
+    margin-top: 0;
+}
+
+
+@media (min-width: 40rem) {
+    [class^=col-] { /*selects all classes that contain "col-" */
+        float: left;
+        padding: 0 .5em;
+        width: 100%;
+    }
+
+    [class^=col-]:first-child { /*no left padding on the first child of the class*/
+        padding-left: 0;
+    }
+
+    [class^=col-]:last-child { /*no right padding on the last child of the class*/
+        padding-right: 0;
+    }
+
+    .col-3 {
+        width: 50%;
+    }
+
+    .col-1 {
+        width: 16.6666%;
+    }
+}
+
+
 
 /* typography
 ===================== */
@@ -46,6 +93,16 @@ h1 { /*general style changes to all h1s*/
     font-weight: 300; /*override font-sizing for span, decrease weight*/
     display: block; /*make the text inside the span always in its own block, bellow the bold one*/
     font-size: .9em; /*in relation to text above*/
+}
+
+.title-cta {
+    margin: 0 0 .5em;
+}
+
+.unstyled-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
 }
 
 @media (min-width:60rem) {
@@ -90,6 +147,17 @@ h1 { /*general style changes to all h1s*/
     color: #232323; /*text color changes to darker from green*/
 }
 
+.button-dark {
+    color: #232323; /*change specific -accent button color*/
+    border-color: #232323;
+}
+
+/*add hover and focus effects for the button*/
+.button-dark:hover,
+.button-dark:focus {
+    background: #232323; /*bg color changes to match text color*/
+    color: #DDD; /*text color changes from black to grey*/
+}
 
 
 
@@ -251,7 +319,7 @@ nav a:focus {
 ================================= */
 
 .portfolio {
-    margin: 3em 0;
+    margin: 3em 0 0;
 }
 
 .port-item {
@@ -299,4 +367,38 @@ nav a:focus {
     .port-item:hover .port-desc {
         transform: translateY(0%);
     }
+}
+
+
+/* CTA - Call to Action 
+================================= */
+
+.cta {
+    background-color: #12c25f;
+    background: rgba(0, 0, 0, .3);
+    padding: 6em 0;
+}
+
+
+/* Footer 
+================================= */
+
+footer {
+    background: #232323;
+    color: #fff;
+    text-align: left;
+    padding: 5em 0;
+}
+
+footer p {
+    margin-top: 0;
+    line-height: 1.5em; /* make spacing between lines bigger, prettier*/
+}
+
+footer li:first-child { /*select the first child of the list and give it a nice bottom padding */
+    padding-bottom: 1em;
+}
+
+footer li {
+    line-height: 1.5em;
 }
