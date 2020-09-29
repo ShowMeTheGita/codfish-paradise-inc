@@ -1,5 +1,7 @@
 # Codfish Paradise Inc.
 
+[Website](https://showmethegita.github.io/codfish-paradise-inc/?)
+
 A fake codfish-recipe themed website made to practice **website responsiveness, HTML structuring and learn new CSS refs, keywords and media queries.**
 
 ### Why?
