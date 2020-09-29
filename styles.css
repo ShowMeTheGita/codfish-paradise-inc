@@ -223,7 +223,10 @@ nav a:focus {
     .home-about-textbox h1 {
         top: .5em;
         left: 3rem;
+        height: 1em;
+        word-wrap: break-word;
         transform: translateX(0);
+        align-content: center;
     }
 
     .home-about {
